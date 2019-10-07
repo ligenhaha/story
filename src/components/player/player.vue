@@ -222,15 +222,15 @@
     .mini-player
       position fixed
       width 100%
-      height: 60px
+      height: 80px
       z-index: 100
       background-color: #e5e2d9
-      bottom 70px
+      bottom 90px
       opacity: 0.95
 
       .mini-box-container
         width: 100%
-        height: 70px
+        height: 80px
         position: relative
         /*padding: 5px 10px 10px 10px*/
         display: flex
@@ -252,8 +252,8 @@
           /*background blue*/
 
           .left-image
-            width: 60px
-            height: 60px
+            width: 70px
+            height: 70px
             border-radius: 1px
             margin-left: 70px
 
@@ -356,4 +356,29 @@
         align-items center
         justify-content center
         border-radius 12px
+      &.normal-enter-active, &.normal-leave-active
+        transition: all 0.4s
+
+        .image-wrapper
+          transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+        .control-wrapper
+          transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+        .progress-bar-container
+          transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+        .time-wrapper
+          transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+        .btn_back
+          transition: all 0.4s cubic-bezier(0.86, 0.18, 0.82, 1.32)
+      &.normal-enter, &.normal-leave-to
+        opacity: 0
+        .image-wrapper
+          transform: translate3d(0, 100px, 0)
+        .control-wrapper
+          transform: translate3d(0, 100px, 0)
+        .progress-bar-container
+          transform: translate3d(0, 100px, 0)
+        .time-wrapper
+          transform: translate3d(0, 100px, 0)
+        .btn_back
+          transform: translate3d(0, 100px, 0)
 </style>

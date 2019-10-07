@@ -20,7 +20,7 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .bottom-tab
     width 100%
-    height 70px
+    height 90px
     position fixed
     left 0px
     bottom 0px
