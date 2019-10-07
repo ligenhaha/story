@@ -1,5 +1,5 @@
 <template>
-  <div class="player">
+  <div class="player"  v-show="playlist.length>0">
     <transition name="mini">
       <div class="mini-player" v-show="!fullscreen" @click="open">
         <div class="mini-box-container">
@@ -29,9 +29,13 @@
         </div>
         <div class="control-wrapper">
           <span :class="iconMode" @click="changeMode"></span>
-          <span @click="prev" class="font_ligen icon-step-backward "></span>
+          <div class="icon"  :class="disableCls">
+            <span @click="prev" class="font_ligen icon-step-backward "></span>
+          </div>
           <span @click="togglePlaying" :class="playIcon"></span>
-          <span @click="next" class="font_ligen icon-step-forward "></span>
+          <div class="icon"  :class="disableCls">
+            <span @click="next" class="font_ligen icon-step-forward "></span>
+          </div>
           <span class="font_ligen icon-aixin_ bfms"></span>
         </div>
         <div class="btn_back" @click="back">返回收听好故事</div>
@@ -64,6 +68,9 @@
       },
       miniIcon () {
         return this.playing ? 'font_ligen i-mini-fm-playing ' : 'font_ligen i-mini-fm-play '
+      },
+      disableCls() {
+        return this.songReady ? '' : 'disable'
       },
       percent() {
         return this.currentTime / this.currentSong.duration
@@ -268,8 +275,8 @@
       width: 100%
       background-color: #e0dcd1
       position: fixed
-      left: 0
-      right: 0
+      /*left: 0*/
+      /*right: 0*/
       top: 0
       bottom: 0
       z-index: 150
@@ -308,10 +315,11 @@
         padding-left 60px
         padding-right 60px
         margin-top 30px
-
-        span
+        .icon
           font-size: 70px
           color: #333333
+          &.disable
+            color: #9b9b9b
 
         .bofang
           font-size: 100px
