@@ -66,7 +66,11 @@
 </template>
 
 <script>
+  import Loading from 'base/loading/loading'
   export default {
+    components: {
+      Loading
+    }
   }
 </script>
 
@@ -121,4 +125,9 @@
             p
               font-size 24px
               color #939393
+  .loading-container
+    position: absolute
+    width: 100%
+    top: 50%
+    transform: translateY(-50%)
 </style>

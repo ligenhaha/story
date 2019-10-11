@@ -27,6 +27,7 @@
   import {getHome} from 'api/slider'
   // import {getExcelentStory} from 'api/story'
   import {ERR_OK} from 'api/config'
+
   // import {createStory} from 'common/js/story'
 
   export default {

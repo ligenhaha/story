@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <div class="content-item" @click="selectItem(index)" v-for="(item,index) in storyList" :key="index">
-        <img :src="item.image">
+        <img v-lazy="item.image">
         <div class="status_wrapper">
           <div class="status_item">
             <span class="font_ligen iconnice nice" style="color: seagreen"></span>
@@ -18,6 +18,9 @@
         </div>
       </div>
     </div>
+    <div class="loading-container" v-show="!storyList.length">
+      <loading></loading>
+    </div>
   </div>
 </template>
 
@@ -26,7 +29,7 @@
   import {ERR_OK} from 'api/config'
   import {createStory} from 'common/js/story'
   import {mapActions} from 'vuex'
-
+  import Loading from 'base/loading/loading'
   export default {
     data () {
       return {
@@ -70,6 +73,9 @@
         'selectPlay'
 
       ])
+    },
+    components: {
+      Loading
     }
   }
 </script>
@@ -146,4 +152,9 @@
               font-size: 24px
               margin-right 5px
               color #939393
+    .loading-container
+      position: absolute
+      width: 100%
+      top: 50%
+      transform: translateY(-50%)
 </style>

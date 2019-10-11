@@ -18,7 +18,7 @@
     <transition name="normal">
       <div class="normal-player" v-show="fullscreen">
         <div class="image-wrapper">
-          <img :src="currentSong.image">
+          <img v-lazy="currentSong.image">
         </div>
         <div class="progress-bar-container">
           <ProgressBar :percent="percent"  @percentChange="onProgressBarChange"></ProgressBar>
